@@ -3,16 +3,16 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     devServer: {
-        contentBase: path.resolve(__dirname,'SchoolPortal/static'),
+        contentBase: path.resolve(__dirname,'SchoolPortal'),
         compress:true,
-        publicPath: "static",
+        publicPath: "Schoolportal",
         writeToDisk:true
     },
     entry: './_src/js/app.js',
     output:{
         filename: 'app.js',
         path: path.resolve(__dirname, 'SchoolPortal/static/js'),
-        publicPath: 'static'
+        publicPath: 'Schoolportal'
     },
     module:{
         rules:[

@@ -2,6 +2,10 @@
 node_modules/
 
 #Django
-__pycache__
+*/__pycache__/*
+oauth_settings.yml
+
 
 #Angular
+
+

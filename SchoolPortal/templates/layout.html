@@ -1,0 +1,62 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolPortal</title>
+    <link rel="stylesheet" href="{% static 'css/sp.css' %}">
+</head>
+<body class="sp sidebar">
+    <header class="sp-header">
+        
+        <a class="sp-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide sidebar" ><span class="fa fa-bars"></span></a>
+        <a href="/" class="sp-header__logo">SchoolPortal</a>
+        {% if user.is_authenticated %}
+        <ul class="sp-nav">
+            {{user.name}}
+            <li class="dropdown">
+               
+                <a class="sp-nav__item" href="#" data-toggle="dropdown" aria-label="Open Menu">
+                    <i class="fa fa-user fa-lg"></i>
+                </a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <li><a class="dropdown-item" href=""><i class="fa fa-cog"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href=""><i class="fa fa-user"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'signout' %}"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+        {% endif %}
+    </header>
+    <aside class="sp-sidebar">
+        {% if user.is_authenticated%}
+        <ul class="sp-menu">
+            <li><a class="sp-menu__item" href=""><i class="fa fa-home"></i>   Home</a></li>
+            <li><a class="sp-menu__item" href=""><i class="fab fa-windows"></i> App Store</a></li>
+            <li><a class="sp-menu__item" href=""><i class="fa fa-atom"></i> Features</a></li>
+            <li><a class="sp-menu__item" href=""><i class="fa fa-question-circle"></i> Documentation</a></li>
+        </ul>
+        {% else %}
+        <ul class="sp-menu">
+            <li><a class="sp-menu__item" href="{% url 'signin' %}"><i class="fa fa-key"></i>   Login</a></li>
+        </ul>
+        {% endif %}
+    </aside>
+    <main  role="main" class="main">
+    {% if errors %}
+    {% for error in errors %}
+      <div class="alert alert-danger" role="alert">
+        <p class="mb-3">{{ error.message }}</p>
+        {% if error.debug %}
+          <pre class="alert-pre border bg-light p-2"><code>{{ error.debug }}</code></pre>
+        {% endif %}
+      </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+    </main>
+<script src="{% static 'js/app.js' %}"></script>    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</body>
+</html>

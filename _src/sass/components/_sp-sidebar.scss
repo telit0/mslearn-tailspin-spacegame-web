@@ -4,14 +4,14 @@
     left:0;
     bottom:0;
     padding-top: 70px;  
-    width: 230px;
+    width: $sidebar-size;
     overflow: auto;
     z-index: 10;
     background-color: $sidebar-color;
     box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
 
     @media (max-width:768px) {
-        left: -230px;
+        left: -$sidebar-size;
     }
 
     transition: left 0.3s ease;
@@ -64,4 +64,8 @@
 .sp.sp-sidebar-toggled .sp-sidebar{
     left: 0px;
     right: 0px;
+}
+
+.main{
+    left: $sidebar-size;
 }
