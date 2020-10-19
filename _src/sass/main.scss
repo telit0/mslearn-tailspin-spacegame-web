@@ -1,0 +1,27 @@
+/*!
+* SchoolPortal Theme
+* Author: Marcelo
+*/
+
+//Bootstrap
+@import "_vars.scss";
+@import "_customize-bootstrap.scss";
+@import "~bootstrap/scss/bootstrap";
+
+//Font awesome
+$fa-font-path : "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Acme:400,700|Roboto:100,300,400");
+
+//App Layout
+@import 'components/sp';
+@import 'components/sp-header';
+@import 'components/sp-sidebar';
+@import 'components/sp-products';
+@import 'components/sp-title';
+@import 'components/sp-vertical-tabs';
+@import 'components/sp-login';

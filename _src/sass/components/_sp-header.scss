@@ -1,0 +1,78 @@
+.sp-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    background: $header-color;
+    z-index: 1050;
+    padding-right: 15px;
+}
+
+.sp-header__logo{
+    flex:1 0 auto;
+    color: white;
+    font-family: $app-font-sans-serif;
+    text-align: left;
+    font-size: 26px;
+    padding: 0 15px;
+    line-height: 50px;
+    &:hover,
+    &:focus{
+        
+        color:$sidebar-color;
+        text-decoration: none;
+    }
+    @media (min-width:768px) {
+        flex:0 0 auto;
+        display: block;
+        width: 230px;
+    }
+}
+
+.sp-nav{
+    @include list-unstyled();
+    display: flex;
+    margin-bottom: 0px;
+    justify-content: flex-end;
+    @media (min-width:768px) {
+        flex: 1 0 auto;
+    }
+}
+
+.sp-nav__item{
+    display: block;
+    padding:18px;
+    color: white;
+    line-height: 18px;
+    transform: background-color 0.3s ease;
+    &:hover,
+    &:focus{
+       
+        color: $sidebar-color;
+    }
+}
+
+.sp-sidebar__toggle{
+    padding:0 15px;
+    color: white;
+    line-height: 50px;
+    transition: background-color 0.3s ease;
+    &:focus,
+    &:hover{
+        color: white;
+        background-color: rgba(0, 0, 0, 0.05);
+        text-decoration: none;
+    }
+
+    @media(max-width:767px){
+        order: -1;
+    }
+}
+
+.sp-sidebar__toggle > span {
+    display:inline-block;
+    padding: 15px;
+
+}
