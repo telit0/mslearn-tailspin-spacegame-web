@@ -1,5 +1,7 @@
 import yaml
 from requests_oauthlib import OAuth2Session
+from django.contrib.auth import authenticate,logout,login
+from django.contrib.auth.models import User
 import os
 import time
 
@@ -51,11 +53,22 @@ def store_token(request, token):
   request.session['oauth_token'] = token
 
 def store_user(request, user):
-  request.session['user'] = {
-    'is_authenticated': True,
-    'name': user['displayName'],
-    'email': user['mail'] if (user['mail'] != None) else user['userPrincipalName']
-  }
+    if(user['mail']== None ):
+      email=user['userPrincipalName'] 
+    else: email=user['mail']
+    #save user on the database
+    u,created=User.objects.get_or_create(username=user['userPrincipalName'],email=email)
+    if created:
+      #User created
+      u.set_password(user['id'])
+      u.save()
+    
+    authenticated=authenticate(request,username=u.get_username(),password=user['id'])
+    if(authenticated is not None):
+      login(request,authenticated)
+      print(authenticated)
+
+  
 
 def get_token(request):
   token = request.session['oauth_token']

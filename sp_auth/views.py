@@ -2,11 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 from sp_auth.auth_helper import get_sign_in_url, get_token_from_code, store_token, store_user, remove_user_and_token, get_token
+from django.contrib.auth import authenticate,logout,login
+
 from sp_auth.graph_helper import get_user
 
 # Create your views here.
 def home(request):
     context = initilize_context(request)
+    if(request.user.is_authenticated):
+      displayName=request.user.get_full_name()
     return render(request,'home.html',context)
 
 def initilize_context(request):
@@ -49,5 +53,5 @@ def callback(request):
 def sign_out(request):
   # Clear out the user and token
   remove_user_and_token(request)
-
+  logout(request)
   return HttpResponseRedirect(reverse('home'))

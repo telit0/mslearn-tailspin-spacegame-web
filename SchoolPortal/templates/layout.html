@@ -11,9 +11,9 @@
         
         <a class="sp-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide sidebar" ><span class="fa fa-bars"></span></a>
         <a href="/" class="sp-header__logo">SchoolPortal</a>
-        {% if user.is_authenticated %}
+        {% if request.user.is_authenticated %}
         <ul class="sp-nav">
-            {{user.name}}
+            {{request.user.email}}
             <li class="dropdown">
                
                 <a class="sp-nav__item" href="#" data-toggle="dropdown" aria-label="Open Menu">
@@ -29,7 +29,7 @@
         {% endif %}
     </header>
     <aside class="sp-sidebar">
-        {% if user.is_authenticated%}
+        {% if request.user.is_authenticated %}
         <ul class="sp-menu">
             <li><a class="sp-menu__item" href=""><i class="fa fa-home"></i>   Home</a></li>
             <li><a class="sp-menu__item" href=""><i class="fab fa-windows"></i> App Store</a></li>
