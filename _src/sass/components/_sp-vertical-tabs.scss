@@ -1,5 +1,7 @@
 .sp-content{
-    margin-left: 230px;
+    margin-left: $sidebar-size;
+    margin-top: 50px;
+    padding: 10 10;
 
     @media(max-width:767px){
         margin-left: 0;
