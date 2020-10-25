@@ -13,7 +13,7 @@
         <a href="/" class="sp-header__logo">SchoolPortal</a>
         {% if request.user.is_authenticated %}
         <ul class="sp-nav">
-            {{request.user.email}}
+            <div class="sp-header__username">{{request.user.email}}</div> 
             <li class="dropdown">
                
                 <a class="sp-nav__item" href="#" data-toggle="dropdown" aria-label="Open Menu">
