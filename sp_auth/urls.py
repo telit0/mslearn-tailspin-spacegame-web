@@ -8,7 +8,7 @@ urlpatterns = [
     path('callback', views.callback, name='callback'),
     path('signout', views.sign_out, name='signout'),
     #TEMP
-    
+    path('ps',views.ps,name='ps'),
     
     path('calendar',views.home,name="calendar"), #######
 ]

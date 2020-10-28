@@ -3,6 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 from sp_auth.auth_helper import get_sign_in_url, get_token_from_code, store_token, store_user, remove_user_and_token, get_token
 from django.contrib.auth import authenticate,logout,login
+import subprocess
 
 from sp_auth.graph_helper import get_user
 
@@ -12,6 +13,15 @@ def home(request):
     if(request.user.is_authenticated):
       displayName=request.user.get_full_name()
     return render(request,'home.html',context)
+
+################ TEMP #######################
+
+def ps(request):
+    subprocess.Popen(['C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe', 'C:\\ps\\test.ps1 "',  str(get_token(request)) ,'" name'])
+    return render(request,'home.html')
+
+#############################################
+
 
 def initilize_context(request):
     context={}

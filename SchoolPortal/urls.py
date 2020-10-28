@@ -19,5 +19,7 @@ from sp_auth import views
 
 urlpatterns = [
     path('', include('sp_auth.urls')),
+    path('appstore/', include('appstore.urls')),
     path('admin/', admin.site.urls),
+    
 ]

@@ -8,4 +8,5 @@ oauth_settings.yml
 
 #Angular
 
-
+#Database
+db.sqlite3
