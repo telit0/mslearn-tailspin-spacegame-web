@@ -1,0 +1,40 @@
+<!-- 
+<div class="software">
+    <h3>Name: {{sw.name}}</h3>
+    <span class="description">Desc: {{ sw.description }}</span>
+</div> -->
+
+<section class="py-5 header">
+    <div class="container py-4">
+    <div class="row">
+            <div class="col-md-3">
+                <!-- Tabs nav -->
+                <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-{{sw.name}}-tab" data-toggle="pill" href="#v-pills-{{sw.name}}" role="tab" aria-controls="v-pills-{{sw.name}}" aria-selected="false">
+                        <div class="row">
+                                <div class="col-md-8">
+                                    <h5 class="card-title">{{sw.name}}</h5>
+                                    {{sw.version}}    
+                                </div>
+                                <div class="col-md-4">
+                                <img class="product-logo" src="{{sw.logo}}"></img> 
+                                </div>
+                            </div>  </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                    <!-- Tabs content -->
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade shadow rounded bg-white  p-5" id="v-pills-{{sw.name}}" role="tabpanel" aria-labelledby="v-pills-{{sw.name}}-tab">
+                            <h4 class="font-italic mb-4">{{sw.name}} - {{sw.version}}</h4>
+                            <p class="font-italic text-muted mb-2"><b>Description</b><br/>
+                            {{sw.description}}
+                            </p>
+                            <a href="#" class="card-link">Install</a>
+                            <a href="#" class="card-link">More information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

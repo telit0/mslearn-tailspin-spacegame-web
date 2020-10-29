@@ -18,7 +18,7 @@ from django.urls import path,include
 from sp_auth import views
 
 urlpatterns = [
-    path('', include('sp_auth.urls')),
+    path('', include('sp_auth.urls'),name='home'),
     path('appstore/', include('appstore.urls')),
     path('admin/', admin.site.urls),
     

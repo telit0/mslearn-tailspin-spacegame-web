@@ -6,7 +6,8 @@
     <title>SchoolPortal</title>
     <link rel="stylesheet" href="{% static 'css/sp.css' %}">
 </head>
-<body class="sp sidebar">
+<body  {% block tags %}{% endblock %}>
+    <div class="sp sidebar">
     <header class="sp-header">
         
         <a class="sp-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide sidebar" ><span class="fa fa-bars"></span></a>
@@ -20,8 +21,8 @@
                     <i class="fa fa-user fa-lg"></i>
                 </a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href=""><i class="fa fa-cog"></i> Settings</a></li>
-                    <li><a class="dropdown-item" href=""><i class="fa fa-user"></i> Profile</a></li>
+                    <!-- <li><a class="dropdown-item" href=""><i class="fa fa-cog"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href=""><i class="fa fa-user"></i> Profile</a></li> -->
                     <li><a class="dropdown-item" href="{% url 'signout' %}"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </li>
@@ -31,8 +32,8 @@
     <aside class="sp-sidebar">
         {% if request.user.is_authenticated %}
         <ul class="sp-menu">
-            <li><a class="sp-menu__item" href=""><i class="fa fa-home"></i>   Home</a></li>
-            <li><a class="sp-menu__item" href=""><i class="fab fa-windows"></i> App Store</a></li>
+            <li><a class="sp-menu__item" href="{% url 'home' %}"><i class="fa fa-home"></i>   Home</a></li>
+            <li><a class="sp-menu__item" href="{% url 'appstore' %}"><i class="fab fa-windows"></i> App Store</a></li>
             <li><a class="sp-menu__item" href=""><i class="fa fa-atom"></i> Features</a></li>
             <li><a class="sp-menu__item" href=""><i class="fa fa-question-circle"></i> Documentation</a></li>
         </ul>
@@ -57,7 +58,9 @@
         {% block content %}{% endblock %}
     </div>
     </main>
-<script src="{% static 'js/app.js' %}"></script>    
+</div>
+   
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<script src="{% static 'js/app.js' %}"></script> 
 </body>
 </html>
