@@ -1,0 +1,46 @@
+{% load static i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/sp.css' %}">
+</head>
+<body class="login-body">
+         
+            
+    <div class=" login-box align-middle">
+        <div class="col-lg-12 login-key">
+            <i class="fa fa-key" aria-hidden="true"></i>
+        </div>
+        <div class="col-lg-12 login-title">
+            SchoolPortal
+        </div>
+        <div style="padding: 10;">
+            <form method="post" >
+                {% csrf_token %}
+            <a href="{% url 'signin' %}"><image src="{% static 'img/ms-symbollockup_signin_dark.png' %}" /></a>
+            <!-- <button type="button" class="button" id="microsoft-login"><img src="{% static 'img/ms-symbollockup_signin_dark.png' %}"/></button> -->
+            </form>
+        </div>
+    </div>
+
+        
+        <div id="content-main">
+            {% if user.is_authenticated %}
+              <p class="errornote">
+                 
+                  You are authenticated as {{ username }}, but are not authorized to
+                  access this page. Would you like to login to a different account?
+                 
+              </p>
+            {% endif %}
+        </div>
+   
+
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    
+
+</body>
+
+</html>

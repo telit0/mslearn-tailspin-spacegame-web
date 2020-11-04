@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Demo</title>
+    <link rel="stylesheet" href="{% static 'css/sp.css' %}">
 </head>
 <body ng-app="appstore.demo">
     
     <div ng-controller="appstoreController">
         <div ng-repeat="sw in data">
-            <appstore-software></appstore-software>
+            <!-- #appstore-software></appstore-software> -->
+            test
         </div>
-        
-    </div>
     
+            
+         
+    </div>
+    Desktop icon 
+            <label class="switch"> <input type="checkbox"><span class="slider round"></span></label>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
     <script src="{% static 'js/app.js' %}"></script>

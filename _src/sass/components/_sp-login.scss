@@ -19,6 +19,7 @@
 
 .login-title {
     margin-top: 15px;
+    font-family: $app-font-sans-serif;
     text-align: center;
     font-size: 30px;
     letter-spacing: 2px;
@@ -30,6 +31,11 @@
 .login-body .body{
     background-color: $sidebar-color;
 }
+
+.login-body {
+    background-color: $sidebar-color;
+}
+
 
 #microsoft-login .login-button button{
     background: #1A2226;;

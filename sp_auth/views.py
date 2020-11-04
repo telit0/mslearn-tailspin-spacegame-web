@@ -12,7 +12,9 @@ def home(request):
     context = initilize_context(request)
     if(request.user.is_authenticated):
       displayName=request.user.get_full_name()
-    return render(request,'home.html',context)
+      return render(request,'home.html',context)
+    else:
+      return render(request,'login.html',context)
 
 ################ TEMP #######################
 
