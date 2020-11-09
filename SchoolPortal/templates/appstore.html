@@ -1,12 +1,10 @@
 {% extends "layout.html" %}
-{% block tags %}{% endblock %}
 {% block content%}
 <div ng-app="appstore.demo">
-<div ng-controller="appstoreController">
-    <div ng-repeat="sw in data">
-        <appstore-software></appstore-software>
+    <div ng-controller="appstoreController">
+        <div ng-repeat="sw in data">
+            <appstore-software></appstore-software>
+        </div>
     </div>
-    
-</div>
 </div>
 {% endblock %}

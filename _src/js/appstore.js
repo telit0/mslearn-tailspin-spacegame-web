@@ -22,7 +22,8 @@
         function SoftwareDirective(){
             return {
                 templateUrl: '/static/software.html',
-                restict: 'E'
+                restrict: 'E'
             };
         }
 })();
+
