@@ -1,7 +1,10 @@
 from django.urls import path
 from django.conf.urls import url
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 from .api import SoftwareAPI,SoftwareInfo
+
+from appstore.views import AppStoreView
 
 from . import helper
 
@@ -11,8 +14,8 @@ urlpatterns = [
     path('sw/<int:id>',SoftwareInfo.as_view()),
 
     #AppStore
-    url(r'^$',TemplateView.as_view(template_name="appstore.html"),name='appstore'),
-    url(r'tests$',TemplateView.as_view(template_name="demo.html")),
-    path('install/<int:id>',helper.install)
+    url(r'^$',login_required(AppStoreView.as_view()),name='appstore'),
+    url(r'tests$',login_required(TemplateView.as_view(template_name="demo.html"))),
+    path('install/<int:id>',login_required(helper.install))
 
 ]
