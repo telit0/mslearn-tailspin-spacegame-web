@@ -1,7 +1,7 @@
 import yaml
 from requests_oauthlib import OAuth2Session
 from django.contrib.auth import authenticate,logout,login
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Permission
 import os
 import time
 
@@ -63,10 +63,11 @@ def store_user(request, user):
       u.set_password(user['id'])
       u.save()
     
-    authenticated=authenticate(request,username=u.get_username(),password=user['id'])
+    authenticated=authenticate(request,username=user['userPrincipalName'],password=user['id'])
     if(authenticated is not None):
       login(request,authenticated)
-      print(authenticated)
+      perm_tuple = [(x.id, x.codename) for x in Permission.objects.filter(user=authenticated)]
+      print(perm_tuple)
 
   
 

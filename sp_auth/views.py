@@ -3,14 +3,16 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 from sp_auth.auth_helper import get_sign_in_url, get_token_from_code, store_token, store_user, remove_user_and_token, get_token
 from django.contrib.auth import authenticate,logout,login
+from django.contrib.auth.decorators import permission_required
 import subprocess
 
 from sp_auth.graph_helper import get_user
 
 # Create your views here.
+
 def home(request):
     context = initilize_context(request)
-    if(request.user.is_authenticated):
+    if(request.user.is_authenticated and request.user.has_perm('appstore.view_software')):
       displayName=request.user.get_full_name()
       return render(request,'home.html',context)
     else:
